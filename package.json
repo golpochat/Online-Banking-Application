@@ -1,0 +1,27 @@
+{
+  "name": "online-banking-application",
+  "version": "1.0.0",
+  "description": "Group project for NCI in MSc. in Cybersecurity",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/golpochat/Online-Banking-Application.git"
+  },
+  "author": "Sujan Hossain & Kgosi Tumi Ramotadima",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/golpochat/Online-Banking-Application/issues"
+  },
+  "homepage": "https://github.com/golpochat/Online-Banking-Application#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "validator": "^13.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
