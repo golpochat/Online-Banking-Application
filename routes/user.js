@@ -17,6 +17,7 @@ const { runValidation } = require("../validator");
 
 router.post("/add", addUserValidator, runValidation, addUser);
 router.put("/update/:id", addUserValidator, runValidation, editUser);
+router.delete("/delete/:id", runValidation, deleteUser);
 router.get("/view/:id", runValidation, viewUser);
 router.get("/all", runValidation, viewAllUser);
 

@@ -1,9 +1,9 @@
 const { check } = require("express-validator");
 const validator = require("validator");
 exports.addUserValidator = [
-  check("username")
+  check("email")
     .notEmpty()
-    .withMessage("Username is required.")
+    .withMessage("An email is required.")
     .isEmail()
     .withMessage("Invalid email address."),
   check("password")
@@ -11,5 +11,4 @@ exports.addUserValidator = [
     .withMessage("Password is required.")
     .isLength({ min: 8 })
     .withMessage("Password must be at least 8 characters long."),
-  check("role").notEmpty().withMessage("Role must be entered."),
 ];
