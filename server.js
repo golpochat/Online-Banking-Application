@@ -3,7 +3,7 @@ const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 // to process user request
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 
 // to use environment variable
 require("dotenv").config();
@@ -13,7 +13,7 @@ const sequelize = require("./database/database");
 sequelize
   .sync()
   .then(() => {
-    console.log("Connected to MySQL.");
+    console.log("MySQL connected.");
   })
   .catch((err) => {
     console.log(err);
@@ -28,10 +28,18 @@ app.use(cors()); // allows all origins
 // importing Authentication route
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
+const customerRoutes = require("./routes/customer");
+const accountRoutes = require("./routes/account");
+const payeeRoutes = require("./routes/payee");
+const transactionRoutes = require("./routes/transaction");
 
 // middleware
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/customer", customerRoutes);
+app.use("/api/account", accountRoutes);
+app.use("/api/payee", payeeRoutes);
+app.use("/api/transaction", transactionRoutes);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on ${port}`));

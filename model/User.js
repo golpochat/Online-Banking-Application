@@ -1,4 +1,4 @@
-const Sequelize = require("sequelize");
+const { Sequelize } = require("sequelize");
 const sequelize = require("../database/database");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -31,12 +31,12 @@ const User = sequelize.define(
       defaultValue: "",
     },
     role: {
-      type: Sequelize.ENUM("Admin", "Client"),
-      defaultValue: "Client",
+      type: Sequelize.ENUM("Admin", "Customer"),
+      defaultValue: "Customer",
     },
     status: {
       type: Sequelize.TINYINT,
-      defaultValue: 0,
+      defaultValue: 1,
     },
   },
   {
@@ -52,8 +52,8 @@ const User = sequelize.define(
 );
 
 // validating password for login
-User.prototype.validPassword = async function (password) {
-  return await bcrypt.compare(password, this.password);
+User.prototype.validPassword = function (plainPassword) {
+  return bcrypt.compareSync(plainPassword, this.password);
 };
 
 // generating auth token
@@ -66,5 +66,4 @@ User.prototype.generateAuthToken = function (user) {
     }
   );
 };
-
 module.exports = User;

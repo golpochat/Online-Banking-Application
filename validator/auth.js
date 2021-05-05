@@ -25,19 +25,6 @@ exports.resetPasswordValidator = [
   check("newPassword")
     .notEmpty()
     .withMessage("Password is required.")
-    .isLength({ min: 6 })
-    .withMessage("Password must be at least 6 characters long."),
-];
-
-exports.changePasswordValidator = [
-  check("password")
-    .notEmpty()
-    .withMessage("Password is required.")
-    .isLength({ min: 6 })
-    .withMessage("Password must be at least 6 characters long."),
-  check("confirm_password")
-    .notEmpty()
-    .withMessage("Confirm password is required.")
-    .isLength({ min: 6 })
-    .withMessage("Confirm password must be at least 6 characters long."),
+    .isLength({ min: 8 })
+    .withMessage("Password must be at least 8 characters long."),
 ];
